@@ -48,9 +48,6 @@ var common = {
 
   },
   plugins: [
-    new npmInstallPlugin({
-      save: true // --save
-    }),
     new HtmlWebpackPlugin({
       template: 'node_modules\\html-webpack-template\\index.ejs',
       title: siteTitle,
@@ -87,6 +84,9 @@ var dev = {
     ]
   },
   plugins: [
+    new npmInstallPlugin({
+      save: true
+    }),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
@@ -103,12 +103,9 @@ var build = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new ExtractTextPlugin('[name].[chunkhash].css')
+    new webpack.optimize.UglifyJsPlugin(),
+    new ExtractTextPlugin('[name].[chunkhash].css'),
+    new webpack.optimize.DedupePlugin()
   ],
   output: {
     chunkFilename: '[chunkhash].js',
