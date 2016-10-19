@@ -41,13 +41,13 @@ class TodoControls extends React.Component {
         <ButtonToolbar justified>
           <Row>
             <Col sm={3}>
-              <ButtonGroup vertical>
+              <ButtonGroup className="space-column" vertical>
                 <div><Badge>{this.props.activeTally}</Badge> <Label>Active</Label></div>
                 <div><Badge>{this.props.completeTally}</Badge> <Label>Complete</Label></div>
               </ButtonGroup>
             </Col>
             <Col sm={6}>
-              <ButtonGroup>
+              <ButtonGroup className="space-column">
                 <Button active={filter === 'All'} onClick={this.handleSelect}>All</Button>
                 <Button active={filter === 'Active'} onClick={this.handleSelect}>Active</Button>
                 <Button active={filter === 'Completed'} onClick={this.handleSelect}>Completed</Button>
@@ -59,7 +59,7 @@ class TodoControls extends React.Component {
               </ButtonGroup>
             </Col>
             <Col sm={3}>
-              <ButtonGroup>
+              <ButtonGroup className="space-column">
                 <Button onClick={this.showWarning} bsStyle="danger" disabled={this.props.completeTally === 0}>Clear Completed</Button>
               </ButtonGroup>
             </Col>

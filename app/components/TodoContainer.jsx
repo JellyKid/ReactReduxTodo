@@ -13,7 +13,7 @@ class TodoContainer extends React.Component {
   render(){
     return (
       <Grid>
-        <Col md={6} mdOffset={3} sm={12}>
+        <Col md={8} mdOffset={2} sm={12}>
           <PageHeader>Todos <Label>{this.props.count}</Label></PageHeader>
           <TodoInput />
           <TodoList />

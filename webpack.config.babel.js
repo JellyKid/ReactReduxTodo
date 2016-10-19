@@ -55,7 +55,8 @@ var common = {
       template: 'node_modules\\html-webpack-template\\index.ejs',
       title: siteTitle,
       appMountId: 'app',
-      inject: false
+      inject: false,
+      mobile: true
     })
   ]
 };
@@ -64,7 +65,7 @@ var dev = {
   devtool: 'eval-source-map',
   devServer: {
     historyApiFallback: true,
-    //hot: true,
+    hot: true,
     stats: 'errors-only',
     inline: true,
     progress: true,

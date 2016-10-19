@@ -1,3 +1,8 @@
 body {
   background-color: rgb(236, 236, 236);
 }
+
+/*give columns some space to breath on colapse*/
+.space-column {
+  padding-bottom: 10px;
+}
