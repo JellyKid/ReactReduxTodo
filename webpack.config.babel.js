@@ -23,7 +23,7 @@ const PATHS = {
 
 var common = {
   entry: {
-    app: ['babel-polyfill', PATHS.app]
+    app: [PATHS.app]
   },
   resolve:{
     extensions: ['','.js','.jsx']
@@ -66,7 +66,7 @@ var dev = {
     stats: 'errors-only',
     inline: true,
     progress: true,
-    host: '127.0.0.1',
+    host: host,
     port: 80
   },
   module: {
@@ -103,9 +103,14 @@ var build = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': '"production"'
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warning: false
+      }
+    }),
     new ExtractTextPlugin('[name].[chunkhash].css'),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.AggressiveMergingPlugin()
   ],
   output: {
     chunkFilename: '[chunkhash].js',

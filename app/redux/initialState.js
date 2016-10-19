@@ -20,5 +20,5 @@ export const INITIAL_STATE = {
   completeTally: 1,
   activeTally: 2,
   sort: 'content',
-  sortDesc: true
+  sortDesc: false
 };
