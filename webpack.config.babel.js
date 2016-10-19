@@ -105,7 +105,7 @@ var build = {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warning: false
+        warnings: false
       }
     }),
     new ExtractTextPlugin('[name].[chunkhash].css'),
