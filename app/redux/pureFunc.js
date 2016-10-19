@@ -75,12 +75,17 @@ export function setVisible(state, filter) {
 }
 
 export function sortTodos(state, method) {
+  //if sorting by same method swap sort direction, othewise sort desc
+  let sortDirection = method === state.sort ? !state.sortDesc : true;
   return update(state, {
     todos: {
-      $set : state.todos.slice().sort(sortFun(!state.sortDesc, method))
+      $set : state.todos.slice().sort(sortFun(sortDirection, method))
+    },
+    sort: {
+      $set: method
     },
     sortDesc: {
-      $set : !state.sortDesc //change sort direction
+      $set : sortDirection 
     }
   });
 }
